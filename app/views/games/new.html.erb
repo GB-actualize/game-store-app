@@ -1,0 +1,23 @@
+<h1> YOUR GAMES ARE BELONGING TO ME </h1>
+
+<%= form_tag '/games', method: :post do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+  <div>
+    <%= label_tag :genre %>
+    <%= text_field_tag :genre %>
+  </div>
+  <div>
+    <%= label_tag :availability %>
+    <%= text_field_tag :availability %>
+  </div>
+  <div>
+    <%= submit_tag "YES!" %>
+  </div>
+<% end %>

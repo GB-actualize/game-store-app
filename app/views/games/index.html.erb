@@ -2,7 +2,7 @@
 <% @games.each do |game| %>
   <h2><a href="/games/<%= game.id %>"><%= game.title %> </a> </h2>
 <!-- multiple paths to the same end -->
-  <h2> <%= link_to game.title, "/games/#{game.id}" %> </h2>
+<!-- <h2> <%= link_to game.title, "/games/#{game.id}" %> </h2> -->
   <h2> Price: <%= game.price %> </h2>
   <h2> Genre: <%= game.genre %> </h2>
   <h2> Availability: <%= game.availability %> </h2>
