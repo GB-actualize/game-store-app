@@ -1,0 +1,23 @@
+<h1> EDIT YOUR GAME SALE </h1>
+
+<%= form_tag "/games/#{ @game.id }", method: :patch do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @game.title %>
+  </div>
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price, @game.price %>
+  </div>
+  <div>
+    <%= label_tag :genre %>
+    <%= text_field_tag :genre, @game.genre %>
+  </div>
+  <div>
+    <%= label_tag :availability %>
+    <%= text_field_tag :availability, @game.availability %>
+  </div>
+  <div>
+    <%= submit_tag "YES!" %>
+  </div>
+<% end %>

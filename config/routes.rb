@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   post '/games' => 'games#create'
 
   get '/games/:id' => 'games#show'
+
+  get '/games/:id/edit' => 'games#edit'
+  patch '/games/:id/' => 'games#update'
 end
