@@ -15,9 +15,6 @@ class GamesController < ApplicationController
                         price: params[:price],
                         genre: params[:genre],
                  availability: params[:availability])
-  
-   
-
     render 'show.html.erb'
   end
 
