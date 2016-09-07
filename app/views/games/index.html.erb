@@ -1,5 +1,6 @@
 <h1> GAMESTORE </h1>
 <% @games.each do |game| %>
+  <h2> ---------------------------------------------------- </h2>
   <h2><a href="/games/<%= game.id %>"><%= game.title %> </a> </h2>
 <!-- multiple paths to the same end -->
 <!-- <h2> <%= link_to game.title, "/games/#{game.id}" %> </h2> -->

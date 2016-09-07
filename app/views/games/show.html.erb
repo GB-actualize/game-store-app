@@ -1,4 +1,9 @@
+
+<div class="info">
 <h2> Title: <%= @game.title %> </h2>
 <h2> Price: <%= @game.price %> </h2>
 <h2> Genre: <%= @game.genre %> </h2>
 <h2> Availability: <%= @game.availability %> </h2>
+</div>
+<%= link_to 'Edit Game', "/games/#{@game.id}/edit" %>
+<%= link_to 'Delete Game', "/games/#{@game.id}", method: :delete %>

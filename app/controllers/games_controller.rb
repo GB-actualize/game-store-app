@@ -15,7 +15,8 @@ class GamesController < ApplicationController
                         price: params[:price],
                         genre: params[:genre],
                  availability: params[:availability])
-    render 'show.html.erb'
+    flash[:success] = "Game made"
+    redirect_to "/games/#{@game.id}"
   end
 
   def edit
@@ -28,7 +29,16 @@ class GamesController < ApplicationController
                  price: params[:price],
                  genre: params[:genre],
           availability: params[:availability])
+    flash[:edit] = "Game altered"
+    redirect_to "/games/#{@game.id}"
+  end
 
-    render 'show.html.erb'
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+
+    flash[:warning] = "And it's gone"
+    redirect_to '/games'
+
   end
 end
