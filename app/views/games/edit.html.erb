@@ -1,19 +1,20 @@
+<body>
 <h1> EDIT YOUR GAME SALE </h1>
-
-<%= form_tag "/games/#{ @game.id }", method: :patch do %>
-  <div class="newitem">
-    <%= label_tag :title %>
-    <%= text_field_tag :title, @game.title %>
-  <br>
-    <%= label_tag :price %>
-    <%= text_field_tag :price, @game.price %>
-  <br>
-    <%= label_tag :genre %>
-    <%= text_field_tag :genre, @game.genre %>
-  <br>
-    <%= label_tag :availability %>
-    <%= text_field_tag :availability, @game.availability %>
-  <br>
-    <%= submit_tag "YES!" %>
-  </div>
-<% end %>
+  <%= form_tag "/games/#{@game.id}", method: :patch do %>
+    <div class="newitem">
+      <%= label_tag :title %>
+      <%= text_field_tag :title, @game.title %>
+    <br>
+      <%= label_tag :price %>
+      <%= text_field_tag :price, @game.price %>
+    <br>
+      <%= label_tag :genre %>
+      <%= text_field_tag :genre, @game.genre %>
+    <br>
+      <%= label_tag :availability %>
+      <%= text_field_tag :availability, @game.availability %>
+    <br>
+      <%= submit_tag "YES!" %>
+    </div>
+  <% end %>
+</body>

@@ -1,4 +1,26 @@
-// Place all the styles related to the Games controller here.
+/// Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  font: "Comic Sans MS", cursive, sans-serif;
+  color: red;
+  background-color: Aquamarine;
+}
+
+h1 {
+  color: black;
+}
+
+div.thumbnail {
+  background-color: LightCoral;
+}
+div.info {
+  color: black;
+}
+div.info h4{
+  color: LightCoral;
+}
+div.bottomNav {
+  color: black;
+}
