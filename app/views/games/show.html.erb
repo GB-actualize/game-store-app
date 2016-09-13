@@ -1,15 +1,16 @@
 <body>
-  <div class="info">
+  <div class="games_info">
     <h2> <%= @game.title %> </h2>
     <h4> <%= @game.sale_message %> </h4>
     <h2> Price: <%= number_to_currency(@game.price) %> </h2>
     <h2> Genre: <%= @game.genre %> </h2>
     <h2> Availability: <%= @game.availability %> </h2>
+    <h2> Supplier ID: <%= @supplier.name %> </h2>
     <h2> <% @game.sale_message %> </h2>
     <h6> <%= @game.tax %> </h6>
     <h6> <%= @game.total %> </h6>
   </div>
-  <div class="bottomNav">
+  <div class="games_bottomNav">
   <%= link_to 'Edit Game', "/games/#{@game.id}/edit" %>
   <p>
   <%= link_to 'Delete Game', "/games/#{@game.id}", method: :delete %>

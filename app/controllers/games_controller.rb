@@ -30,7 +30,10 @@ class GamesController < ApplicationController
       @game = Game.all.sample
     else 
       @game = Game.find(params[:id])
+      @supplier = @game.supplier
     end
+
+
   end
 
   def create
