@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :images
   
   def sale_message
-    if price < 2 
+    if price < 35
       "Discount item!"
     else
       "Full-Priced Game"
@@ -12,11 +12,15 @@ class Game < ActiveRecord::Base
   end
   
   def tax
-    "$#{((price)*0.09)} is the tax."
+    price*0.09
   end
 
   def total
-    "$#{(price*0.09) + price} is the total price."
+    ((price*0.09) + price)
+  end
+
+  def first_image
+    images.first.url
   end
 
 end

@@ -4,23 +4,33 @@
 
 body {
   font: "Comic Sans MS", cursive, sans-serif;
-  color: red;
-  background-color: Aquamarine;
+  color: #D5D5D5;
+  background-color: #96858F;
 }
 
 h1 {
-  color: black;
+  color: #062F4F;
+  
 }
 
 div.thumbnail {
-  background-color: LightCoral;
+  background-color: #76323F;
 }
-div.games_info {
-  color: black;
+div.games_info{
+  color: #D5D5D5;
+  background-color: #76323F;
+  padding: 20px;
+}
+div.newgame_form {
+  color: #D5D5D5;
+  background-color: #76323F;
+  padding: 20px;
 }
 div.games_info h4{
   color: LightCoral;
 }
 div.games_bottomNav {
   color: black;
+  background-color: #062F4F;
+  margin: 20px;
 }

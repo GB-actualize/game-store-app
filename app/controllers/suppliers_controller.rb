@@ -26,7 +26,9 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.find(params[:id])
     @supplier.update(name: params[:name],
                     phone: params[:phone],
-                    email: params[:genre])
+                    email: params[:email])
+    flash[:edit] = "Supplier altered"
+    redirect_to "/suppliers"
   end
 
   def destroy

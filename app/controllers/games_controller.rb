@@ -40,7 +40,11 @@ class GamesController < ApplicationController
     @game = Game.create(title: params[:title],
                         price: params[:price],
                         genre: params[:genre],
-                 availability: params[:availability])
+                 availability: params[:availability],
+                 supplier_id: params[:supplier][:supplier_id])
+
+    @image = Image.create(url: params[:image], game_id: :game_id)
+
     flash[:success] = "Game made"
     redirect_to "/games"
   end
@@ -53,9 +57,9 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.update(title: params[:title],
                  price: params[:price],
-
                  genre: params[:genre],
-          availability: params[:availability])
+          availability: params[:availability],
+          supplier_id: params[:supplier_id])
     flash[:edit] = "Game altered"
     redirect_to "/games"
   end
