@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/games/:id/edit' => 'games#edit'
   get '/suppliers/:id/edit' => 'suppliers#edit'
   get '/images/:id/edit' => 'images#edit'
-  
+
   patch '/games/:id/' => 'games#update'
   patch '/suppliers/:id' => 'suppliers#update'
   patch '/images/:id' => 'images#update'
@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get '/sessions' => 'sessions#new'
   post '/login' => 'sessions#create' 
-  get '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
 
+  get '/orders/new' => 'orders#new'
+  post '/orders' => 'orders#create'
 end

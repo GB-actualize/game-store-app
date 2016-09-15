@@ -2,6 +2,7 @@ class Game < ActiveRecord::Base
 
   belongs_to :supplier
   has_many :images
+  has_many :orders
   
   def sale_message
     if price < 35
@@ -21,6 +22,10 @@ class Game < ActiveRecord::Base
 
   def first_image
     images.first.url
+  end
+
+  def chef
+    user.name
   end
 
 end

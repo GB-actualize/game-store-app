@@ -7,15 +7,15 @@
     <h2> Availability: <%= @game.availability %> </h2>
     <h2> Supplier ID: <%= @supplier.name %> </h2>
     <h2> <% @game.sale_message %> </h2>
-    
+
     <h6> <%= number_to_currency(@game.tax) %> is the tax.  </h6>
     <h6> <%= number_to_currency(@game.total) %> is the total. </h6>
-    
     <% @game.images.each do |image_object| %>
       <img src="<%= image_object.url %>"" alt="<%= @game.title %>" class="img-responsive">
     <% end %>
 
   </div>
+  
   <div class="games_bottomNav">
   <%= link_to 'Edit Game', "/games/#{@game.id}/edit" %>
   <p>

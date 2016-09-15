@@ -1,5 +1,23 @@
 <h1> GAMESTORE </h1>
-  <h2> Click a game to edit details </h2>
+  <h2> Click a game to edit details, or enter Game ID followed by Quantity or Purchase. </h2>
+
+    <div>
+      <%= form_tag '/orders', method: :post do %>
+        <div>
+          <%= label_tag :game_id %>
+          <%= text_field_tag :game_id %>
+        </div>
+        <div>
+          <%= label_tag :quantity %>
+          <%= text_field_tag :quantity %>
+        </div>
+        <div>
+            <%= submit_tag "YES!" %>
+        </div>
+      <% end %>
+    </div>
+
+    <br>
     <% @games.each_slice(3) do |game_row| %>
       <div class="row">
             <% game_row.each do |game| %>

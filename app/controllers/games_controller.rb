@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  
+  before_action :authenticate_user!
+
   def index
     @games = Game.all
     sort_attribute = params[:sort]
@@ -41,7 +44,7 @@ class GamesController < ApplicationController
                         price: params[:price],
                         genre: params[:genre],
                  availability: params[:availability],
-                 supplier_id: params[:supplier][:supplier_id])
+                  supplier_id: params[:supplier][:supplier_id])
 
     @image = Image.create(url: params[:image], game_id: :game_id)
 
