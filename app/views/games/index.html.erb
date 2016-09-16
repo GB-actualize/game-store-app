@@ -1,20 +1,22 @@
 <h1> GAMESTORE </h1>
-  <h2> Click a game to edit details, or enter Game ID followed by Quantity or Purchase. </h2>
+  <h2> Click a game to edit details, 
+  <br>
+  or enter Game ID followed by Quantity to Purchase! </h2>
 
     <div>
+
       <%= form_tag '/orders', method: :post do %>
         <div>
-          <%= label_tag :game_id %>
-          <%= text_field_tag :game_id %>
+          <%= text_field_tag :game_id, nil, placeholder: "Game ID from URL" %>
         </div>
         <div>
-          <%= label_tag :quantity %>
-          <%= text_field_tag :quantity %>
+          <%= text_field_tag :quantity, nil, placeholder: "Desired Quantity"%>
         </div>
         <div>
             <%= submit_tag "YES!" %>
         </div>
       <% end %>
+
     </div>
 
     <br>
