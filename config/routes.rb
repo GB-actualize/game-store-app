@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/suppliers' => 'suppliers#index'
   get '/images' => 'images#index'
   get '/games/random' => 'games#random'
+  get '/carted_products' => 'carted_products#index'
 
   get '/games/new' => 'games#new'
   get '/signup' => 'users#new'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   post '/games' => 'games#create'
   post '/images' => 'images#create'
   post '/users' => 'users#create'
+  post '/carted_products' => 'carted_products#create'
 
   get '/games/:id' => 'games#show'
   get '/suppliers/:id' => 'suppliers#show'

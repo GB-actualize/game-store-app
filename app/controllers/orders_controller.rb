@@ -18,12 +18,10 @@ class OrdersController < ApplicationController
     @order.save
 
     flash[:success] = @order.message
-
-    redirect_to "/games"
+    redirect_to "/orders/#{:id}"
   end
 
   def show
     @order = Order.find(params[:id])
-    @game = @order.game
   end
 end

@@ -23,5 +23,5 @@ class ApplicationController < ActionController::Base
     @categories_list = Category.all
   end
 
-
+  
 end

@@ -5,10 +5,11 @@
       <% order_row.each do |order| %>
         <div class="col-md-4">
           <div class="thumbnail">
-            <img src="<%= order.game.images.first.url %>" alt="<%= order.game.title %>" class="img-responsive">
+
+
+            <h4> Game: <%= @game.find_ %> </h4> 
             <h4> User ID: <%= order.user_id %> </h4>
-            <h4> Game ID: <%= order.game.title %> </h4>
-            <h4> Quantity: <%= order.quantity %> </h4>
+            <h4> Subtotal: <%= order.subtotal %> </h4>
             <h4> Total: <%= order.total %> </h4>
 
 
