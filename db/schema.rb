@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915014348) do
+ActiveRecord::Schema.define(version: 20160919234233) do
+
+  create_table "carted_products", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_games", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "game_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.string   "title"
@@ -31,8 +54,6 @@ ActiveRecord::Schema.define(version: 20160915014348) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "game_id"
-    t.integer  "quantity"
     t.decimal  "subtotal",   precision: 8, scale: 2
     t.decimal  "tax",        precision: 8, scale: 2
     t.decimal  "total",      precision: 8, scale: 2

@@ -8,6 +8,11 @@ class GamesController < ApplicationController
     sort_order = params[:sort_order]
     discount_level = params[:discount]
     search_term = params[:search_term]
+    category = params[:category]
+
+    if category
+      @games = Category.find_by(name: category).games
+    end
 
     if search_term
       fuzzy = "%#{search_term}%"
@@ -35,6 +40,8 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
       @supplier = @game.supplier
     end
+
+    @categories = @game.categories
 
 
   end

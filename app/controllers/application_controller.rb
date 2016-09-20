@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  before_action :find_categories_list
+
   def current_user
     # if session[:user_id]
     #   unless @current_user
@@ -16,5 +18,10 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     redirect_to '/sessions' unless current_user
   end
+
+  def find_categories_list
+    @categories_list = Category.all
+  end
+
 
 end

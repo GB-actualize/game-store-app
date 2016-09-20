@@ -50,6 +50,10 @@
                   <li><a href="/games?sort=genre">Sort by Genre</a></li>
                   <li><a href="/games?sort=availability">Sort by Availability</a></li>
                   <li><a href="/games?discount=100">Discount Items</a></li>
+                  <li> CATEGORIES </li>
+                  <% Category.all.each do |category| %>
+                    <li><a href="/games?category=<%= category.name %>"><%= category.name %> Games</a></li>
+                  <% end %>
                 </ul>
               </li>
             </ul>

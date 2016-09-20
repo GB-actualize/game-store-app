@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :game
+  has_many :carted_products
 
   def calculate_subtotal
     self.subtotal = game.price * quantity

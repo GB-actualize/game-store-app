@@ -1,8 +1,11 @@
 class Game < ActiveRecord::Base
 
+  has_many :category_games
+  has_many :categories, through: :category_games
   belongs_to :supplier
   has_many :images
-  has_many :orders
+  has_many :carted_products
+  has_many :users, through: :carted_products
   
   def sale_message
     if price < 35
@@ -24,8 +27,8 @@ class Game < ActiveRecord::Base
     images.first.url
   end
 
-  def chef
-    user.name
+  def customer
+    current_user.name
   end
 
 end

@@ -8,6 +8,10 @@
     <h2> Supplier ID: <%= @supplier.name %> </h2>
     <h2> <% @game.sale_message %> </h2>
 
+    <% @categories.each do |category| %>
+      <h4> <a href="/games?category=<%= category.name %>"><%= category.name %> Games Category</a> </h4>
+    <% end %>
+
     <h6> <%= number_to_currency(@game.tax) %> is the tax.  </h6>
     <h6> <%= number_to_currency(@game.total) %> is the total. </h6>
     <% @game.images.each do |image_object| %>
