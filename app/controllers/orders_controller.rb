@@ -1,27 +1,27 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all
-  end
+
+  before_action :authenticate_user!
 
   def create
-    game = Game.find(params[:game_id])
+    @carted_products = current_user.currently_carted
+    @order = Order.create(user_id: current_user.id)
+    @carted_products.update_all(order_id: @order.id, status: "purchased")
 
-    @order = Order.new(
-      user_id: current_user.id, 
-      game_id: params[:game_id],
-      quantity: params[:quantity].to_i)
+    subtotal = 0 
+    @carted_products.each do |carted_product|
+      subtotal += carted_product.quantity * carted_product.game.price
+    end
 
-    @order.calculate_subtotal
-    @order.calculate_tax 
-    @order.calculate_total
-    
-    @order.save
+    tax = subtotal * 0.09
+    total = subtotal + tax
+
 
     flash[:success] = @order.message
-    redirect_to "/orders/#{:id}"
+    redirect_to "/orders/#{@order.id}"
   end
 
   def show
     @order = Order.find(params[:id])
+    redirect_to '/games' if @order.user.id != current_user.id
   end
 end

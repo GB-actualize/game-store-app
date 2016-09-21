@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   
-  before_action :authenticate_user!
+  before_action :authenticate_admin!, except: [:index, :show]
+
 
   def index
     @games = Game.all
@@ -10,6 +11,7 @@ class GamesController < ApplicationController
     search_term = params[:search_term]
     category = params[:category]
 
+  
     if category
       @games = Category.find_by(name: category).games
     end
@@ -28,9 +30,12 @@ class GamesController < ApplicationController
     elsif sort_attribute
       @games = @games.order(sort_attribute)
     end
+
+
   end
   
   def new
+
   end
 
   def show
@@ -47,16 +52,15 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(title: params[:title],
-                        price: params[:price],
-                        genre: params[:genre],
-                 availability: params[:availability],
-                  supplier_id: params[:supplier][:supplier_id])
+      @game = Game.create(title: params[:title],
+                            price: params[:price],
+                            genre: params[:genre],
+                     availability: params[:availability],
+                      supplier_id: params[:supplier][:supplier_id])
 
-    @image = Image.create(url: params[:image], game_id: :game_id)
+      @image = Image.create(url: params[:image], game_id: :game_id)
+      flash[:success] = "Game made"  
 
-    flash[:success] = "Game made"
-    redirect_to "/games"
   end
 
   def edit
@@ -64,22 +68,25 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game = Game.find(params[:id])
-    @game.update(title: params[:title],
-                 price: params[:price],
-                 genre: params[:genre],
-          availability: params[:availability],
-          supplier_id: params[:supplier_id])
-    flash[:edit] = "Game altered"
-    redirect_to "/games"
+
+      @game = Game.find(params[:id])
+      @game.update(title: params[:title],
+                   price: params[:price],
+                   genre: params[:genre],
+                availability: params[:availability],
+                supplier_id: params[:supplier_id])
+          flash[:edit] = "Game altered"
+          flash[:success] = "Game made"  
+
   end
 
   def destroy
-    @game = Game.find(params[:id])
-    @game.destroy
 
-    flash[:warning] = "And it's gone"
-    redirect_to '/games'
+      @game = Game.find(params[:id])
+      @game.destroy
+
+      flash[:success] = "And it's gone"
+
   end
 
   def random

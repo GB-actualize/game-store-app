@@ -1,10 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :carted_products
-
+  has_many :games, through: :carted_products
+  
   def calculate_subtotal
     @carted_products.each do |carted_product| 
-      self.subtotal += carted_products.game.price * carted_products.quantity
+     subtotal += carted_products.game.price * carted_products.quantity
     end
   end
 
@@ -22,8 +23,20 @@ class Order < ApplicationRecord
     "Order created!"
   end
 
+
   def find_game_title
     @game = @order.user.game
   end
-  
+
+  def calculate_totals
+    subtotal_collector = 0 
+    @carted_products.each do |carted_product| 
+      subtotal += carted_product.game.price
+    end
+
+    self.subtotal = subtotal_collector
+    self.tax = subtotal * 0.09
+    self.total = subtotal + tax
+    self.save
+  end
 end

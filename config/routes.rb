@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/games/:id' => 'games#show'
   get '/suppliers/:id' => 'suppliers#show'
+  get '/orders/:id' => 'orders#show'
 
 
   get '/games/:id/edit' => 'games#edit'
@@ -37,5 +38,4 @@ Rails.application.routes.draw do
 
   get '/orders' => 'orders#index'
   post '/orders' => 'orders#create'
-  get '/orders/:id' => 'order#show'
 end

@@ -14,6 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+private
+  def authenticate_admin!
+    
+    redirect_to '/games' unless current_user && current_user.admin
+  end
 
   def authenticate_user!
     redirect_to '/sessions' unless current_user

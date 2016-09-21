@@ -1,0 +1,2 @@
+class CartedGame < ApplicationRecord
+end

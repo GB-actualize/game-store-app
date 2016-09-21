@@ -20,15 +20,18 @@
 
   </div>
 
-  <div class="games_bottomNav">
-    <%= link_to 'Edit Game', "/games/#{@game.id}/edit" %>
-    <p>
-    <%= link_to 'Delete Game', "/games/#{@game.id}", method: :delete %>
-    <p>
-  </div>
+  <% if current_user && current_user.admin %>
+    <div class="games_bottomNav">
+      <%= link_to 'Edit Game', "/games/#{@game.id}/edit" %>
+      <p>
+      <%= link_to 'Delete Game', "/games/#{@game.id}", method: :delete %>
+      <p>
+    </div>
+  <% end %>
+
 
     <div>
-
+  <% if current_user %>
       <%= form_tag '/carted_products', method: :post do %>
         <div>
           <%= hidden_field_tag :game_id, @game.id %>
@@ -40,9 +43,10 @@
             <%= submit_tag "Add to cart!" %>
         </div>
       <% end %>
+    <% end %>
 
       <br>
-      
+    <% if current_user && current_user.admin %>
       <%= form_tag '/images', method: :post do %>
         <div>
           <%= hidden_field_tag :game_id, @game.id %>
@@ -54,6 +58,7 @@
             <%= submit_tag "SUBMIT IMAGE!" %>
         </div>
       <% end %>
+    <% end %>
 
     </div>
 </body>

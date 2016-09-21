@@ -1,3 +1,7 @@
-<h4> User ID: <%= order.user_id %> </h4>
-<h4> Subtotal: <%= order.subtotal %> </h4>
-<h4> Total: <%= order.total %> </h4>
+<% @order.carted_products.each do |carted_product| %>
+  <h4> Game: <%= carted_product.game.title %>, Quantity: <%= carted_product.quantity %> </h4>
+<% end %> 
+
+<h4> Subtotal: <%= @order.subtotal %> </h4>
+<h4> Tax: <%= @order.tax %> </h4>
+<h4> Total: <%= @order.total %> </h4>

@@ -1,20 +1,17 @@
-<h1>  Checkout page </h1>
-  <div class="row">
-    <% @carted_products.each do |carted_product| %>
-      <div class="col-md-4">
-        <div class="thumbnail">            
-          <h4> Game ID: <%= carted_product.game.title %> </h4>
-          <h4> Quantity: <%= carted_product.quantity %> 
-          </h4>
-        </div>
-      </div>
-    <% end %>
-
-      <%= form_tag '/orders', method: :post do %>
-
-        <div>
-            <%= submit_tag "Buy Now!" %>
+<% unless carted_product.user_id = current.user.id %>
+  <h1>  Checkout page </h1>
+    <div class="row">
+      <% @carted_products.each do |carted_product| %>
+        <div class="col-md-4">
+          <div class="thumbnail">            
+            <h4> Game ID: <%= carted_product.game.title %> - Quantity: <%= carted_product.quantity %> </h4>
+          </div>
         </div>
       <% end %>
 
-  </div>
+
+      <div>
+        <%= link_to "BUY NOW!", "/orders", method: :post %>
+      </div>
+    </div>
+<% end %>
