@@ -1,0 +1,2 @@
+class GitExamplesController < ApplicationController
+end

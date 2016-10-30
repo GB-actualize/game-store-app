@@ -1,4 +1,4 @@
-class GamesController < ApplicationController
+ class GamesController < ApplicationController
   
   before_action :authenticate_admin!, except: [:index, :show]
 
@@ -22,7 +22,7 @@ class GamesController < ApplicationController
     end
 
     if discount_level
-      @games = @games.where("price < ?", discount_level)
+      @games = @games.where("price < ?", discount_level) 
     end
 
     if sort_attribute && sort_order
@@ -70,13 +70,7 @@ class GamesController < ApplicationController
   def update
 
       @game = Game.find(params[:id])
-      @game.update(title: params[:title],
-                   price: params[:price],
-                   genre: params[:genre],
-                availability: params[:availability],
-                supplier_id: params[:supplier_id])
-          flash[:edit] = "Game altered"
-          flash[:success] = "Game made"  
+
 
   end
 

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/games/new' => 'games#new'
   get '/signup' => 'users#new'
+  
 
   post '/games' => 'games#create'
   post '/images' => 'images#create'
