@@ -1,0 +1,2 @@
+class BernsteinController < ApplicationController
+end
